@@ -14,7 +14,7 @@ import android.widget.TextView;
 public class Home extends AppCompatActivity {
 
     private TextView mTextMessage;
-    private Button BuyProductButton;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,16 +44,6 @@ public class Home extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        final Button ProductCard = findViewById(R.id.BuyProductButton);
-        ProductCard.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(Home.this, ProductActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
