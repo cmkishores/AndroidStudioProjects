@@ -20,7 +20,7 @@ public class Adapter extends BaseAdapter {
     };
 
     // Constructor
-    public ImageAdapter(Context c){
+    public Adapter(Context c){
         mContext = c;
     }
 
