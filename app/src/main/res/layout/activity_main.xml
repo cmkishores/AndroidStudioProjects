@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:clipToPadding="false"
@@ -7,86 +9,110 @@
     android:fitsSystemWindows="true"
     android:background="@drawable/back3">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="24dp"
-        android:paddingTop="56dp"
-        android:paddingRight="24dp"
         android:visibility="visible">
 
         <ImageView
-            android:layout_width="258dp"
-            android:layout_height="239dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/logo1" />
+            android:id="@+id/imageView"
+            android:layout_width="285dp"
+            android:layout_height="222dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/logo1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Email Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/MailID_editText"
+            android:layout_width="361dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColorHint="@color/common_google_signin_btn_text_dark_focused">
-
-            <EditText
-                android:id="@+id/MailID_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:selectAllOnFocus="false"
-                android:singleLine="false" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_marginEnd="8dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+            android:textColor="@color/fui_linkColor"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <!-- Password Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/Password_editText"
+            android:layout_width="373dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:textColorHint="@color/common_google_signin_btn_text_dark_focused">
-
-            <EditText
-                android:id="@+id/Password_editText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword" />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_marginEnd="8dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="@color/fui_bgFacebook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MailID_editText" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/login_button"
-            android:layout_width="fill_parent"
+            android:layout_width="334dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/common_google_signin_btn_text_light"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/browser_actions_title_color"
             android:padding="12dp"
             android:text="Login"
-            android:visibility="visible" />
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Password_editText" />
 
         <TextView
             android:id="@+id/link_signup"
-            android:layout_width="fill_parent"
+            android:layout_width="363dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="24dp"
             android:gravity="center"
             android:text="No account yet?"
+            android:textColor="@color/browser_actions_bg_grey"
             android:textSize="16dip"
-            android:visibility="visible" />
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/register_button"
-            android:layout_width="fill_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="42dp"
             android:backgroundTint="@color/common_google_signin_btn_text_light"
             android:padding="12dp"
-            android:text="Create One" />
+            android:text="Create One"
+            android:textColor="@color/browser_actions_bg_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/link_signup"
+            app:layout_constraintVertical_bias="0.634" />
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 </ScrollView>
