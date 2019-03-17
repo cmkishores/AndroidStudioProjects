@@ -14,12 +14,9 @@ public class ProductActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         btn=(Button)findViewById(R.id.BuyButton3D);
-        btn.setOnClickListener(new OnClickListener() {
-
-            public void onClick(View v) {
-                Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
-                startActivity(intent);
-            }
+        btn.setOnClickListener(v -> {
+            Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
+            startActivity(intent);
         });
     }
 }

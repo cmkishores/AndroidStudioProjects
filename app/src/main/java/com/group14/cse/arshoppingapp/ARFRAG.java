@@ -24,19 +24,17 @@ public class ARFRAG extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arfrag);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
-        arFragment.setOnTapArPlaneListener(new BaseArFragment.OnTapArPlaneListener() {
-            @Override
-            public void onTapPlane(HitResult hitResult, Plane plane, MotionEvent motionEvent) {
-                Anchor anchor = hitResult.createAnchor();
-                ModelRenderable.builder().setSource(ARFRAG.this, Uri.parse("model.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable))
-                        .exceptionally(throwable ->
-                        {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(ARFRAG.this);
-                            builder.setMessage(throwable.getMessage())
-                                    .show();
-                            return null;
-                        });
-            }
+        assert arFragment != null;
+        arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) -> {
+            Anchor anchor = hitResult.createAnchor();
+            ModelRenderable.builder().setSource(ARFRAG.this, Uri.parse("model.sfb")).build().thenAccept(modelRenderable -> addModelToScene(anchor, modelRenderable))
+                    .exceptionally(throwable ->
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ARFRAG.this);
+                        builder.setMessage(throwable.getMessage())
+                                .show();
+                        return null;
+                    });
         });
                 Intent intent = new Intent(ARFRAG.this, Home.class);
         startActivity(intent);
