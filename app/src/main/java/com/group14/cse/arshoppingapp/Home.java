@@ -12,17 +12,21 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class Home extends Activity {
+public class Home extends Activity
+{
 
     private TextView mTextMessage;
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            = new BottomNavigationView.OnNavigationItemSelectedListener()
+    {
 
         @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
+        public boolean onNavigationItemSelected(@NonNull MenuItem item)
+        {
+            switch (item.getItemId())
+            {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
                     return true;
@@ -36,11 +40,18 @@ public class Home extends Activity {
             return false;
         }
     };
+
+
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        mTextMessage = (TextView) findViewById(R.id.message);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         GridView gridView = (GridView) findViewById(R.id.GridView);
 
         // Instance of ImageAdapter Class
@@ -49,28 +60,22 @@ public class Home extends Activity {
         /**
          * On Click event for Single Gridview Item
          * */
-        gridView.setOnItemClickListener(new OnItemClickListener() {
+        gridView.setOnItemClickListener(new OnItemClickListener()
+        {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
+                                    int position, long id)
+            {
 
                 // Sending image id to FullScreenActivity
                 Intent i = new Intent(getApplicationContext(), ProductActivity.class);
                 // passing array index
                 i.putExtra("id", position);
                 startActivity(i);
+
             }
+
         });
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
 
