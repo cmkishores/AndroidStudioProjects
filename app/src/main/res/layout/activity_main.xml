@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:clipToPadding="false"
@@ -22,10 +21,13 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/logo1"
+            app:layout_constraintBottom_toTopOf="@+id/MailID_editText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="TODO" />
 
         <!-- Email Label -->
         <EditText
@@ -70,7 +72,7 @@
             android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
             android:background="@color/colorPrimary"
-            android:backgroundTint="@color/browser_actions_title_color"
+            android:backgroundTint="@color/colorPrimary"
             android:padding="12dp"
             android:text="Login"
             android:textColor="@color/common_google_signin_btn_text_dark_default"
@@ -103,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="42dp"
-            android:backgroundTint="@color/common_google_signin_btn_text_light"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:padding="12dp"
             android:text="Create One"
             android:textColor="@color/browser_actions_bg_grey"
