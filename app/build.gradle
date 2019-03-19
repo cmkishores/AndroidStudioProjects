@@ -55,8 +55,17 @@ sceneform.asset('sampledata/model.obj',
         'sampledata/model.sfa',
         'src/main/assets/model')
 
-
-sceneform.asset('sampledata/modell.obj',
+sceneform.asset('sampledata/model3.obj',
         'default',
-        'sampledata/modell.sfa',
-        'src/main/assets/modell')
+        'sampledata/model3.sfa',
+        'src/main/assets/model3')
+
+sceneform.asset('sampledata/model4.obj',
+        'default',
+        'sampledata/model4.sfa',
+        'src/main/assets/model4')
+
+sceneform.asset('sampledata/model5.obj',
+        'default',
+        'sampledata/model5.sfa',
+        'src/main/assets/model5')

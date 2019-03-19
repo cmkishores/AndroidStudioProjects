@@ -1,11 +1,13 @@
 package com.group14.cse.arshoppingapp;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Adapter extends BaseAdapter {
     private Context mContext;
@@ -19,9 +21,15 @@ public class Adapter extends BaseAdapter {
 
     };
 
+    private String[] imageLabels;
+    private LayoutInflater thisInflater;
+
     // Constructor
-    public Adapter(Context c){
-        mContext = c;
+    public Adapter(Context c, String[] labs) {
+
+        this.mContext = c;
+        this.thisInflater = LayoutInflater.from(c);
+        this.imageLabels = labs;
     }
 
     @Override
@@ -36,16 +44,23 @@ public class Adapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView = new ImageView(mContext);
-        imageView.setImageResource(mThumbIds[position]);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setLayoutParams(new GridView.LayoutParams(70, 70));
-        return imageView;
-    }
+        if (convertView == null) {
 
+            convertView = thisInflater.inflate(R.layout.grid_item, parent, false);
+
+            TextView textHeading = (TextView) convertView.findViewById(R.id.grid_text);
+            ImageView thumbnailImage = (ImageView) convertView.findViewById(R.id.grid_image);
+
+            textHeading.setText(imageLabels[position]);
+            thumbnailImage.setImageResource(mThumbIds[position]);
+        }
+
+        return convertView;
+
+    }
 }

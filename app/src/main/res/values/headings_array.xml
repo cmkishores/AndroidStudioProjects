@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="headings">
+        <item>Couch</item>
+        <item>Table</item>
+        <item>Bookcase</item>
+        <item>Flower Vase</item>
+        <item>Flower Vase</item>
+        <item>Television</item>
+        <item>Chair</item>
+        <item>Light Lamp</item>
+    </string-array>
+</resources>

@@ -2,6 +2,7 @@ package com.group14.cse.arshoppingapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 
 public class Home extends Activity
 {
-
+    String[] labels;
     private TextView mTextMessage;
 
 
@@ -49,13 +50,17 @@ public class Home extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Resources res = getResources();
+        labels = res.getStringArray(R.array.headings);
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         GridView gridView = (GridView) findViewById(R.id.GridView);
 
         // Instance of ImageAdapter Class
-        gridView.setAdapter(new Adapter(this));
+
+        Adapter myAdapter =new Adapter(getApplicationContext(),labels);
+        gridView.setAdapter(myAdapter);
 
         /**
          * On Click event for Single Gridview Item
