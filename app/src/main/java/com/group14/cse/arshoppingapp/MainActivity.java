@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
         auth = FirebaseAuth.getInstance();
         final EditText Name = findViewById(R.id.MailID_editText);
         final EditText Password = findViewById(R.id.Password_editText);
