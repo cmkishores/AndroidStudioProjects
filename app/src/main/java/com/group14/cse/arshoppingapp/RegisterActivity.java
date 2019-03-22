@@ -26,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity
     private EditText rgEmailID_editText;
     private EditText rgPassword_editText;
     private Button rgRegister_Button;
+    private Button login_button;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -35,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity
 
         auth = FirebaseAuth.getInstance();
         Button  Register =  findViewById(R.id.rgRegister_Button);
+        Button Login = findViewById(R.id.login_button)
 
         final EditText MailID =  findViewById(R.id.rgEmailID_editText);
         final EditText Password = findViewById(R.id.rgPassword_editText);
@@ -67,7 +69,13 @@ public class RegisterActivity extends AppCompatActivity
                 });
             };
         } );
-
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

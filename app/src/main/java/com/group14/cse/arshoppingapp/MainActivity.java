@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText Name = findViewById(R.id.MailID_editText);
         final EditText Password = findViewById(R.id.Password_editText);
         Button Login = findViewById(R.id.login_button);
-        Button Register = findViewById(R.id.register_button);
+        Button Register = findViewById(R.id.rgRegister_Button);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
