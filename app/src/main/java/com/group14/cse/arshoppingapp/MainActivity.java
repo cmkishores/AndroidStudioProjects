@@ -1,5 +1,6 @@
 package com.group14.cse.arshoppingapp;
 
+import android.app.Application;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
+
     private EditText Username_editText;
     private FirebaseAuth auth;
     private EditText Password_editText;
