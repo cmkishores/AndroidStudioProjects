@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FurniTrue</string>
+    <string name="app_name">Furnitrue</string>
     <string name="title_activity_login">Log In</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
