@@ -44,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"
+            android:background="@color/colorPrimaryDark"
             android:horizontalSpacing="50dp"
             android:verticalSpacing="90dp"
             android:listSelector="#f5f5f5"/>
