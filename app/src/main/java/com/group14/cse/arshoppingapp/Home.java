@@ -13,10 +13,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
 
-public class Home extends Activity
+public class Home extends Activity implements
 {
     String[] labels;
     private TextView mTextMessage;
+
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
