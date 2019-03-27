@@ -12,11 +12,28 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.TextView;
+import org.web3j.crypto.Credentials;
+import org.web3j.crypto.ECKeyPair;
+import org.web3j.crypto.WalletUtils;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.tx.Transfer;
+import org.web3j.utils.Convert;
+
+import java.io.File;
+
 
 public class Home extends Activity implements
 {
     String[] labels;
     private TextView mTextMessage;
+    private Web3j web3;
+    //FIXME: Add your own password here
+    private final String password = "medium";
+    private String walletPath;
+    private File walletDir;
 
 
 

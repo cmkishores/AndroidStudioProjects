@@ -41,6 +41,7 @@ dependencies {
     implementation "com.google.firebase:firebase-auth:16.2.0"
     implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
+    implementation 'org.web3j:core:4.1.0-android'
 
 
 }
