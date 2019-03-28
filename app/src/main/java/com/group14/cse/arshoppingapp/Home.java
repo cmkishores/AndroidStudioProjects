@@ -32,11 +32,6 @@ public class Home extends Activity
 {
    private String[] labels;
     private TextView mTextMessage;
-    private Web3j web3;
-    //FIXME: Add your own password here
-    private final String password = "medium";
-    private String walletPath;
-    private File walletDir;
 
 
 
@@ -104,70 +99,5 @@ public class Home extends Activity
         });
 
     }
-    public void connectToEthNetwork(View v)
-    {
-        toastAsync("Connecting to Ethereum network...");
-        // FIXME: Add your own API key here
-        web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/YOURKEY"));
-        try
-        {
-            Web3ClientVersion clientVersion = web3.web3ClientVersion().sendAsync().get();
-            if(!clientVersion.hasError())
-            {
-                toastAsync("Connected!");
-            }
-            else
-            {
-                toastAsync(clientVersion.getError().getMessage());
-            }
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-    }
-    public void createWallet(View v)
-    {
-        try
-        {
-            WalletUtils.generateNewWalletFile(password, walletDir);
-            toastAsync("Wallet generated");
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-    }
-    public void getAddress(View v)
-    {
-        try
-        {
-            Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
-            toastAsync("Your address is " + credentials.getAddress());
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-    }
-    public void sendTransaction(View v)
-    {
-        try
-        {
-            Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
-            TransactionReceipt receipt = Transfer.sendFunds(web3,credentials,"0x31B98D14007bDEe637298086988A0bBd31184523",new BigDecimal(1),Convert.Unit.ETHER).sendAsync().get();
-            toastAsync("Transaction complete: " +receipt.getTransactionHash());
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-    }
-    public void toastAsync(String message)
-    {
-        runOnUiThread(() ->
-        {
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-        });
-    }
+
 }
