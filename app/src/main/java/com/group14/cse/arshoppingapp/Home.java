@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -85,14 +87,13 @@ public class Home extends Activity
         {
             @Override
             public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id)
+                                    int i, long l)
             {
-
-                // Sending image id to FullScreenActivity
-                Intent i = new Intent(getApplicationContext(), ProductActivity.class);
-                // passing array index
-                i.putExtra("id", position);
-                startActivity(i);
+                Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
+                intent.putExtra("name",labels[i]);
+                intent.putExtra("image",mThumbIds[i]);
+                startActivity(intent);
 
             }
 
