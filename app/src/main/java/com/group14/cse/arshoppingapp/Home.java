@@ -21,6 +21,7 @@ import android.widget.Toast;
 public class Home extends Activity
 {
    private String[] labels;
+   private int[] images;
     private TextView mTextMessage;
 
 
@@ -31,6 +32,7 @@ public class Home extends Activity
         setContentView(R.layout.activity_home);
 
         Resources res = getResources();
+        images = res.getIntArray(R.array.image)
         labels = res.getStringArray(R.array.headings);
         mTextMessage = (TextView) findViewById(R.id.message);
 
@@ -54,7 +56,7 @@ public class Home extends Activity
                 Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
                 final Intent name = intent.putExtra("name", labels[i]);
-                intent.putExtra("image", Resources[i]);
+                intent.putExtra("image", images[i]);
                 startActivity(intent);
 
             }
