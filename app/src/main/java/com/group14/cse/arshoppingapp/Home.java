@@ -55,8 +55,8 @@ public class Home extends Activity
             {
                 Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
-                final Intent name = intent.putExtra("name", labels[i]);
-                intent.putExtra("image", images[i]);
+                intent.putExtra("name",labels[i]);
+                intent.putExtra("image",images[i]);
                 startActivity(intent);
 
             }
