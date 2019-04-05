@@ -10,4 +10,14 @@
         <item>Chair</item>
         <item>Light Lamp</item>
     </string-array>
+    <integer-array name="image">
+        <item>@drawable/model1</item>
+        <item>@drawable/model2</item>
+        <item>@drawable/model3</item>
+        <item>@drawable/model4</item>
+        <item>@drawable/model5</item>
+        <item>@drawable/model6</item>
+        <item>@drawable/model7</item>
+        <item>@drawable/model8</item>
+    </integer-array>
 </resources>
