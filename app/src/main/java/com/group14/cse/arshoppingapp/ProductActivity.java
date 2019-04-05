@@ -1,11 +1,15 @@
 package com.group14.cse.arshoppingapp;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.web3j.crypto.Credentials;
@@ -27,11 +31,23 @@ public class ProductActivity extends Activity {
     private final String password = "medium";
     private String walletPath;
     private File walletDir;
-
+    TextView gridData;
+    ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+
+        gridData = findViewById(R.id.grid_image);
+        imageView = findViewById(R.id.grid_text);
+        Intent intent = getIntent();
+        String receivedName =  intent.getStringExtra("name");
+        int receivedImage = intent.getIntExtra("image",0);
+
+        gridData.setText(receivedName);
+        imageView.setImageResource(receivedImage);
+        //enable back Button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
@@ -46,6 +62,25 @@ public class ProductActivity extends Activity {
 
         });
     }
+    Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+}
+
+
+    private ActionBar getSupportActionBar() {
+        return null;
+    }
+
     public void connectToEthNetwork(View v)
     {
         toastAsync("Connecting to Ethereum network...");
