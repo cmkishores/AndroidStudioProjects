@@ -1,12 +1,10 @@
 package com.group14.cse.arshoppingapp;
-import android.app.ActionBar;
-import android.app.Activity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.provider.MediaStore;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +22,7 @@ import org.web3j.utils.Convert;
 import java.io.File;
 import java.math.BigDecimal;
 
-public class ProductActivity extends Activity
+public class ProductActivity extends AppCompatActivity
 {
     Button btn1,btn2;
     private Web3j web3;
@@ -32,6 +30,7 @@ public class ProductActivity extends Activity
     private final String password = "medium";
     private String walletPath;
     private File walletDir;
+
     TextView gridData;
     ImageView imageView;
     @Override
@@ -82,7 +81,7 @@ public class ProductActivity extends Activity
     }
 
 
-    private ActionBar getSupportActionBar() {
+    public ActionBar getSupportActionBar() {
         return null;
     }
 

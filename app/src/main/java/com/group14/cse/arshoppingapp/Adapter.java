@@ -30,6 +30,7 @@ public class Adapter extends BaseAdapter {
         this.mContext = c;
         this.thisInflater = LayoutInflater.from(c);
         this.imageLabels = labs;
+
     }
 
     @Override
