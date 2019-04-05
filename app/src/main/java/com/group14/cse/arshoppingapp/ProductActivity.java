@@ -24,7 +24,8 @@ import org.web3j.utils.Convert;
 import java.io.File;
 import java.math.BigDecimal;
 
-public class ProductActivity extends Activity {
+public class ProductActivity extends Activity
+{
     Button btn1,btn2;
     private Web3j web3;
     //FIXME: Add your own password here
@@ -34,15 +35,16 @@ public class ProductActivity extends Activity {
     TextView gridData;
     ImageView imageView;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        gridData = findViewById(R.id.grid_image);
-        imageView = findViewById(R.id.grid_text);
-        Intent intent = getIntent();
-        String receivedName =  intent.getStringExtra("name");
-        int receivedImage = intent.getIntExtra("image",0);
+        gridData = findViewById(R.id.grid_text);
+        imageView = findViewById(R.id.grid_image);
+        Intent intent1 = getIntent();
+        String receivedName =  intent1.getStringExtra("name");
+        int receivedImage = intent1.getIntExtra("image",0);
 
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
@@ -63,18 +65,21 @@ public class ProductActivity extends Activity {
         });
     }
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getItemId() == android.R.id.home)
+        {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
 
     }
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         super.onBackPressed();
+
     }
-}
 
 
     private ActionBar getSupportActionBar() {
