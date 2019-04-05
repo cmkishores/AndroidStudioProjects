@@ -40,8 +40,8 @@ public class ProductActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        gridData = findViewById(R.id.grid_text);
-        imageView = findViewById(R.id.grid_image);
+        gridData = findViewById(R.id.textView);
+        imageView = findViewById(R.id.imageView);
         Intent intent1 = getIntent();
         String receivedName =  intent1.getStringExtra("name");
         int receivedImage = intent1.getIntExtra("image",0);
