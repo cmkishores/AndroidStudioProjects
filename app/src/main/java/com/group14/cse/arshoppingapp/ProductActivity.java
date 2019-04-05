@@ -85,7 +85,7 @@ public class ProductActivity extends Activity {
     {
         toastAsync("Connecting to Ethereum network...");
         // FIXME: Add your own API key here
-        web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/YOURKEY"));
+        web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/832579"));
         try
         {
             Web3ClientVersion clientVersion = web3.web3ClientVersion().sendAsync().get();
