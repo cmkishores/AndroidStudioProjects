@@ -36,32 +36,6 @@ public class Home extends Activity
     private TextView mTextMessage;
 
 
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener()
-    {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item)
-        {
-            switch (item.getItemId())
-            {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -71,8 +45,8 @@ public class Home extends Activity
         Resources res = getResources();
         labels = res.getStringArray(R.array.headings);
         mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
         GridView gridView = (GridView) findViewById(R.id.GridView);
 
         // Instance of ImageAdapter Class
@@ -91,8 +65,8 @@ public class Home extends Activity
             {
                 Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
-                intent.putExtra("name",labels[i]);
-                intent.putExtra("image",mThumbIds[i]);
+                final Intent name = intent.putExtra("name", labels[i]);
+                intent.putExtra("image", Resources[i]);
                 startActivity(intent);
 
             }
