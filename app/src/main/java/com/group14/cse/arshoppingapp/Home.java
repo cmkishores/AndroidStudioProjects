@@ -32,7 +32,7 @@ public class Home extends Activity
         setContentView(R.layout.activity_home);
 
         Resources res = getResources();
-        images = res.getIntArray(R.array.image)
+        images = res.getIntArray(R.array.image);
         labels = res.getStringArray(R.array.headings);
         mTextMessage = (TextView) findViewById(R.id.message);
 
