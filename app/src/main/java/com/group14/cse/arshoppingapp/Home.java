@@ -60,7 +60,7 @@ public class Home extends AppCompatActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            View view1 = getLayoutInflater().inflate(R.layout.grid_item,null);
+            View view1 = getLayoutInflater().inflate(R.layout.grid_item,null,false);
             //getting view in row_data
             TextView name = view1.findViewById(R.id.label);
             TextView prize = view1.findViewById(R.id.prize);
