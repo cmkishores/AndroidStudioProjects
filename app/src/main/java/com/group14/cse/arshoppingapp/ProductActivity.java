@@ -32,6 +32,7 @@ public class ProductActivity extends AppCompatActivity
     private File walletDir;
 
     TextView gridData;
+    TextView gridPrize;
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,13 +40,16 @@ public class ProductActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        gridData = findViewById(R.id.textView);
+        gridData = findViewById(R.id.griddata);
+        gridPrize = findViewById(R.id.gridprize);
         imageView = findViewById(R.id.imageView);
         Intent intent1 = getIntent();
         String receivedName =  intent1.getStringExtra("name");
+        String receivedPrize =  intent1.getStringExtra("prize");
         int receivedImage = intent1.getIntExtra("image",0);
 
         gridData.setText(receivedName);
+        gridPrize.setText(receivedPrize);
         imageView.setImageResource(receivedImage);
         //enable back Button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
