@@ -10,12 +10,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Home extends AppCompatActivity {
     GridView gridView;
 
     String[] labels = {"Couch","Table","Bookcase","Flower Vase","Flower Vase","Television","Chair,Light Stand"};
     int[] modelimages = {R.drawable.model1,R.drawable.model2,R.drawable.model3,R.drawable.model4,R.drawable.model5,R.drawable.model6,R.drawable.model7,R.drawable.model8};
-    String[] prize = {"10eth","7eth","8eth","4eth","4.5eth","7eth","6eth","5eth"}
+    String[] prizes = {"10eth","7eth","8eth","4eth","4.5eth","7eth","6eth","5eth"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
                 intent.putExtra("name",labels[i]);
                 intent.putExtra("image",modelimages[i]);
-                intent.putExtra("prize",prize[i]);
+                intent.putExtra("prize",prizes[i]);
                 startActivity(intent);
 
             }
@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
             TextView prize = view1.findViewById(R.id.prize);
             ImageView image = view1.findViewById(R.id.model_images);
 
-            name.setText(modelimages[i]);
+            name.setText(labels[i]);
+            prize.setText(prizes[i]);
             image.setImageResource(modelimages[i]);
             return view1;
 
