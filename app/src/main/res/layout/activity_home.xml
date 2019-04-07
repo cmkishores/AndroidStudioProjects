@@ -9,7 +9,7 @@
     <GridView
         android:id="@+id/gridview"
         android:layout_width="match_parent"
-        android:layout_height="628dp"
+        android:layout_height="614dp"
         android:background="#e5e5e5"
         android:horizontalSpacing="1dp"
         android:numColumns="2"
@@ -19,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"></GridView>
 
     <SearchView
+        android:id="@+id/searchView2"
         android:layout_width="395dp"
         android:layout_height="87dp"
         android:layout_marginStart="8dp"
