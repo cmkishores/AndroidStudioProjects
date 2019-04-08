@@ -30,6 +30,7 @@
         android:backgroundTint="@color/colorWhite"
         android:fontFamily="sans-serif-light"
         android:hint="Email"
+        android:text="cmkishore@ieee.org"
         android:inputType="textEmailAddress"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textColorHint="@color/browser_actions_text_color"

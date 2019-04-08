@@ -21,6 +21,7 @@ import org.web3j.utils.Convert;
 
 import java.io.File;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class ProductActivity extends AppCompatActivity
 {
@@ -32,7 +33,6 @@ public class ProductActivity extends AppCompatActivity
     private File walletDir;
 
     TextView gridData;
-    TextView gridPrize;
     ImageView imageView;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,19 +40,11 @@ public class ProductActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        gridData = findViewById(R.id.griddata);
-        gridPrize = findViewById(R.id.gridprize);
+        gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
-        Intent intent1 = getIntent();
-        String receivedName =  intent1.getStringExtra("name");
-        String receivedPrize =  intent1.getStringExtra("prize");
-        int receivedImage = intent1.getIntExtra("image",0);
 
-        gridData.setText(receivedName);
-        gridPrize.setText(receivedPrize);
-        imageView.setImageResource(receivedImage);
         //enable back Button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
