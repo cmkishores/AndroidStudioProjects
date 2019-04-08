@@ -11,10 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="322dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="121dp"
+        android:layout_marginEnd="23dp"
         android:src="@drawable/model1" />
 
     <TextView
@@ -37,8 +38,12 @@
         android:id="@+id/BuyButton3D"
         android:layout_width="153dp"
         android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="637dp"
         android:layout_marginEnd="33dp"
         android:layout_marginBottom="34dp"
         android:text="3D" />
@@ -47,9 +52,13 @@
         android:id="@+id/buybutton"
         android:layout_width="147dp"
         android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="41dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="637dp"
+        android:layout_marginEnd="227dp"
         android:layout_marginBottom="34dp"
-        android:layout_toStartOf="@+id/BuyButton3D"
         android:text="BUY" />
 </RelativeLayout>
