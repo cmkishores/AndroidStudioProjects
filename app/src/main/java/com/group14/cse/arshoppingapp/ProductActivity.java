@@ -26,6 +26,7 @@ import java.util.Objects;
 public class ProductActivity extends AppCompatActivity
 {
     Button btn1,btn2;
+    boolean t;
     private Web3j web3;
     //FIXME: Add your own password here
     private final String password = "medium";
@@ -49,11 +50,6 @@ public class ProductActivity extends AppCompatActivity
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
 
-<<<<<<< HEAD
-=======
-        //enable back Button
-
->>>>>>> 696bf3ff818799384e199b96020109b5bac5292c
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
@@ -61,11 +57,12 @@ public class ProductActivity extends AppCompatActivity
             startActivity(intent);
         });
         btn1.setOnClickListener(v -> {
-            connectToEthNetwork(v);
-            createWallet(v);
-            getAddress(v);
-            sendTransaction(v);
-
+           t= connectToEthNetwork(v);
+            if(t==true) {
+                createWallet(v);
+                getAddress(v);
+                sendTransaction(v);
+            }
         });
     }
     @Override
@@ -90,7 +87,7 @@ public class ProductActivity extends AppCompatActivity
         return null;
     }
 
-    public void connectToEthNetwork(View v)
+    public boolean connectToEthNetwork(View v)
     {
         toastAsync("Connecting to Ethereum network...");
         // FIXME: Add your own API key here
@@ -101,16 +98,19 @@ public class ProductActivity extends AppCompatActivity
             if(!clientVersion.hasError())
             {
                 toastAsync("Connected!");
+                return true;
             }
             else
             {
                 toastAsync(clientVersion.getError().getMessage());
+                return false;
             }
         }
         catch (Exception e)
         {
             toastAsync(e.getMessage());
         }
+    return false;
     }
     public void createWallet(View v)
     {
