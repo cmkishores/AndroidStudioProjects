@@ -49,16 +49,26 @@ public class ProductActivity extends AppCompatActivity
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
 
-<<<<<<< HEAD
-=======
-        //enable back Button
 
->>>>>>> 696bf3ff818799384e199b96020109b5bac5292c
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
-            Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
-            startActivity(intent);
+            if(receivedName=="Couch - 10eth") {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
+                startActivity(intent);
+            }
+            else if (receivedName=="Book Case - 8eth") {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG3.class);
+                startActivity(intent);
+            }
+            else if (receivedName=="Flower Vase - 5eth") {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG4.class);
+                startActivity(intent);
+            }
+            else if (receivedName=="Flower Vase - 4eth") {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG5.class);
+                startActivity(intent);
+            }
         });
         btn1.setOnClickListener(v -> {
             connectToEthNetwork(v);
