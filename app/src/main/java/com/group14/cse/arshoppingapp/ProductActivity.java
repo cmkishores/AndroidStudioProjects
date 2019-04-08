@@ -44,7 +44,7 @@ public class ProductActivity extends AppCompatActivity
         imageView = findViewById(R.id.imageView);
 
         //enable back Button
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
