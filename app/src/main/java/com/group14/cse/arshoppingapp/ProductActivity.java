@@ -49,6 +49,11 @@ public class ProductActivity extends AppCompatActivity
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
 
+<<<<<<< HEAD
+=======
+        //enable back Button
+
+>>>>>>> 696bf3ff818799384e199b96020109b5bac5292c
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
