@@ -42,9 +42,13 @@ public class ProductActivity extends AppCompatActivity
 
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
+        Intent intent1 = getIntent();
+        String receivedName =  intent1.getStringExtra("name");
+        int receivedImage = intent1.getIntExtra("image",0);
 
-        //enable back Button
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        gridData.setText(receivedName);
+        imageView.setImageResource(receivedImage);
+
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
