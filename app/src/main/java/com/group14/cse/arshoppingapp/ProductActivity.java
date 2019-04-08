@@ -50,10 +50,7 @@ public class ProductActivity extends AppCompatActivity
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c1be18bbb3bfd99a418a11d037246550ebde46a6
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
