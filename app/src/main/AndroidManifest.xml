@@ -53,7 +53,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group14.cse.arshoppingapp.Home" />
         </activity>
-        <activity android:name=".ARFRAG"></activity>
+        <activity android:name=".ARFRAG">
+        </activity>
+        <activity android:name=".ARFRAG3">
+        </activity>
+        <activity android:name=".ARFRAG5">
+        </activity>
+        <activity android:name=".ARFRAG4">
+    </activity>
     </application>
 
 </manifest>
