@@ -28,7 +28,7 @@ public class ProductActivity extends AppCompatActivity
     Button btn1,btn2;
     boolean t;
     private Web3j web3;
-    //FIXME: Add your own password here
+
     private final String password = "ARSHOPPINGAPP";
     private String walletPath = getFilesDir().getAbsolutePath();
 
@@ -76,7 +76,7 @@ public class ProductActivity extends AppCompatActivity
         btn1.setOnClickListener(v -> {
            t= connectToEthNetwork(v);
 
-            toastAsync("Wallet generated"+walletPath);
+            toastAsync("Wallet generated");
             if(t==true) {
                 createWallet(v);
 
