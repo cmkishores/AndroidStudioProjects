@@ -29,7 +29,7 @@ public class ProductActivity extends AppCompatActivity
     boolean t;
     private Web3j web3;
     //FIXME: Add your own password here
-    private final String password = "medium";
+    private final String password = "cmkishores";
     private String walletPath;
     private File walletDir;
 
@@ -50,62 +50,29 @@ public class ProductActivity extends AppCompatActivity
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
 
-
+//29cf16c50a8ecf3a4ccfcb9f678b51d0410f33bf4e6edb916b701f8396189e60
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
-            if(receivedName=="Couch - 10eth") {
                 Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
                 startActivity(intent);
-            }
-            else if (receivedName=="Book Case - 8eth") {
-                Intent intent = new Intent(ProductActivity.this, ARFRAG3.class);
-                startActivity(intent);
-            }
-            else if (receivedName=="Flower Vase - 5eth") {
-                Intent intent = new Intent(ProductActivity.this, ARFRAG4.class);
-                startActivity(intent);
-            }
-            else if (receivedName=="Flower Vase - 4eth") {
-                Intent intent = new Intent(ProductActivity.this, ARFRAG5.class);
-                startActivity(intent);
-            }
+
         });
         btn1.setOnClickListener(v -> {
            t= connectToEthNetwork(v);
             if(t==true) {
                 createWallet(v);
-                getAddress(v);
-                sendTransaction(v);
+
+
             }
         });
     }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
-            onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
 
-    }
-    @Override
-    public void onBackPressed()
-    {
-        super.onBackPressed();
-
-    }
-
-
-    public ActionBar getSupportActionBar() {
-        return null;
-    }
 
     public boolean connectToEthNetwork(View v)
     {
         toastAsync("Connecting to Ethereum network...");
-        // FIXME: Add your own API key here
+
         web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/b5000509579e421faeaf38cbfebe84ef"));
         try
         {
@@ -133,6 +100,7 @@ public class ProductActivity extends AppCompatActivity
         {
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
+            getAddress(v);
         }
         catch (Exception e)
         {
@@ -145,6 +113,7 @@ public class ProductActivity extends AppCompatActivity
         {
             Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
             toastAsync("Your address is " + credentials.getAddress());
+            sendTransaction(v);
         }
         catch (Exception e)
         {

@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
     GridView gridView;
@@ -28,7 +29,7 @@ public class Home extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Toast.makeText(getApplicationContext(),fruitNames[i],Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
                 intent.putExtra("name",labels[i]);
                 intent.putExtra("image",modelimages[i]);
