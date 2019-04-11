@@ -56,9 +56,22 @@ public class ProductActivity extends AppCompatActivity
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
         btn2.setOnClickListener(v -> {
+            if(receivedName .equals("Couch - 10eth")) {
                 Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
                 startActivity(intent);
-
+            }
+            else if (receivedName .equals("Book Case - 8eth")) {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG3.class);
+                startActivity(intent);
+            }
+            else if (receivedName .equals("Flower Vase - 5eth")) {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG4.class);
+                startActivity(intent);
+            }
+            else if (receivedName .equals("Flower Vase - 4eth")) {
+                Intent intent = new Intent(ProductActivity.this, ARFRAG5.class);
+                startActivity(intent);
+            }
         });
         btn1.setOnClickListener(v -> {
            t= connectToEthNetwork(v);
