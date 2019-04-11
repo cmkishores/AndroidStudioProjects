@@ -30,9 +30,9 @@ public class ProductActivity extends AppCompatActivity
     private Web3j web3;
 
     private final String password = "ARSHOPPINGAPP";
-    private String walletPath = getFilesDir().getAbsolutePath();
+    private String walletPath;
 
-    private File walletDir  = new File(walletPath);;
+    private File walletDir;
 
 
     TextView gridData;
@@ -42,6 +42,8 @@ public class ProductActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
+        walletPath = getFilesDir().getAbsolutePath();
+        walletDir  = new File(walletPath);
 
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
@@ -77,11 +79,12 @@ public class ProductActivity extends AppCompatActivity
            t= connectToEthNetwork(v);
 
             toastAsync("Wallet generated");
-            if(t==true) {
+
                 createWallet(v);
+                getAddress(v);
+                sendTransaction(v);
 
 
-            }
         });
     }
 
@@ -118,7 +121,7 @@ public class ProductActivity extends AppCompatActivity
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
 
-            getAddress(v);
+
         }
         catch (Exception e)
         {
@@ -131,7 +134,7 @@ public class ProductActivity extends AppCompatActivity
         {
             Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
             toastAsync("Your address is " + credentials.getAddress());
-            sendTransaction(v);
+
         }
         catch (Exception e)
         {
@@ -154,8 +157,6 @@ public class ProductActivity extends AppCompatActivity
     public void toastAsync(String message)
     {
         runOnUiThread(() ->
-        {
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-        });
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show());
     }
 }
