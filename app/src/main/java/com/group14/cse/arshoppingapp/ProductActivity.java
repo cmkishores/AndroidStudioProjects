@@ -29,9 +29,11 @@ public class ProductActivity extends AppCompatActivity
     boolean t;
     private Web3j web3;
     //FIXME: Add your own password here
-    private final String password = "cmkishores";
-    private String walletPath;
-    private File walletDir;
+    private final String password = "ARSHOPPINGAPP";
+    private String walletPath = getFilesDir().getAbsolutePath();
+
+    private File walletDir  = new File(walletPath);;
+
 
     TextView gridData;
     ImageView imageView;
@@ -60,6 +62,8 @@ public class ProductActivity extends AppCompatActivity
         });
         btn1.setOnClickListener(v -> {
            t= connectToEthNetwork(v);
+
+            toastAsync("Wallet generated"+walletPath);
             if(t==true) {
                 createWallet(v);
 
@@ -100,6 +104,7 @@ public class ProductActivity extends AppCompatActivity
         {
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
+
             getAddress(v);
         }
         catch (Exception e)
