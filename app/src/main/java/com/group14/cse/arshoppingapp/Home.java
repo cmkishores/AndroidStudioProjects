@@ -2,6 +2,7 @@ package com.group14.cse.arshoppingapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -29,6 +30,11 @@ public class Home extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d("i","Hello");
+
+
+
+
                 Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
                 intent.putExtra("name",labels[i]);
