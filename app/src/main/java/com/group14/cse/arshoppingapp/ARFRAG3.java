@@ -21,7 +21,7 @@ public class ARFRAG3 extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arfrag);
-        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
+        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragmentId);
         assert arFragment != null;
         arFragment.setOnTapArPlaneListener((hitResult, plane, motionEvent) ->
         {
