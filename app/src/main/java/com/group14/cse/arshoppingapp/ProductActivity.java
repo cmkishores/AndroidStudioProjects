@@ -28,33 +28,28 @@ public class ProductActivity extends AppCompatActivity
     Button btn1,btn2;
     boolean t;
     private Web3j web3;
-
     private final String password = "ARSHOPPINGAPP";
     private String walletPath = getFilesDir().getAbsolutePath();
-
-    private File walletDir  = new File(walletPath);;
-
-
+    private File walletDir  = new File(walletPath);
     TextView gridData;
     ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
         Intent intent1 = getIntent();
         String receivedName =  intent1.getStringExtra("name");
         int receivedImage = intent1.getIntExtra("image",0);
-
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
-
 //29cf16c50a8ecf3a4ccfcb9f678b51d0410f33bf4e6edb916b701f8396189e60
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
+
         btn2.setOnClickListener(v -> {
             if(receivedName .equals("Couch - 10eth")) {
                 Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
@@ -73,10 +68,10 @@ public class ProductActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
         btn1.setOnClickListener(v -> {
            t= connectToEthNetwork(v);
-
-            toastAsync("Wallet generated");
+           toastAsync("Wallet generated");
             if(t==true) {
                 createWallet(v);
 
@@ -89,7 +84,6 @@ public class ProductActivity extends AppCompatActivity
     public boolean connectToEthNetwork(View v)
     {
         toastAsync("Connecting to Ethereum network...");
-
         web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/b5000509579e421faeaf38cbfebe84ef"));
         try
         {
@@ -117,7 +111,6 @@ public class ProductActivity extends AppCompatActivity
         {
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
-
             getAddress(v);
         }
         catch (Exception e)
