@@ -23,13 +23,15 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import retrofit2.http.HEAD;
+
 public class ProductActivity extends AppCompatActivity
 {
     Button btn1,btn2;
     boolean t;
     private Web3j web3;
     //FIXME: Add your own password here
-    private final String password = "cmkishores";
+    private final String password = "ARSHOPPINGAPP";
     private String walletPath;
     private File walletDir;
 
@@ -40,13 +42,13 @@ public class ProductActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-
+        walletPath = getFilesDir().getAbsolutePath();
+        walletDir  = new File(walletPath);
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
         Intent intent1 = getIntent();
         String receivedName =  intent1.getStringExtra("name");
         int receivedImage = intent1.getIntExtra("image",0);
-
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
 
@@ -71,16 +73,23 @@ public class ProductActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        btn1.setOnClickListener(v -> {
+        btn1.setOnClickListener(v ->
+        {
+           t= connectToEthNetwork(v);
 
-            t= connectToEthNetwork(v);
-            toastAsync("Wallet generated");
+           toastAsync("Wallet generated");
+            if(t==true) {
+                t= connectToEthNetwork(v);
+                toastAsync("Wallet generated");
+
             if(t==true) {
                 toastAsync("Wallet generated");
                 createWallet(v);
                 getAddress(v);
                 sendTransaction(v);
             }
+        }
+
         });
     }
 
@@ -117,6 +126,9 @@ public class ProductActivity extends AppCompatActivity
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
             getAddress(v);
+
+            getAddress(v);
+
         }
         catch (Exception e)
         {
