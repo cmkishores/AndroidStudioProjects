@@ -23,22 +23,20 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import retrofit2.http.HEAD;
+
 public class ProductActivity extends AppCompatActivity
 {
     Button btn1,btn2;
     boolean t;
     private Web3j web3;
     private final String password = "ARSHOPPINGAPP";
-<<<<<<< HEAD
-    private String walletPath = getFilesDir().getAbsolutePath();
-    private File walletDir  = new File(walletPath);
-=======
+
     private String walletPath;
 
     private File walletDir;
 
 
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
     TextView gridData;
     ImageView imageView;
 
@@ -47,12 +45,10 @@ public class ProductActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-<<<<<<< HEAD
-=======
-        walletPath = getFilesDir().getAbsolutePath();
+
+       walletPath = getFilesDir().getAbsolutePath();
         walletDir  = new File(walletPath);
 
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
         Intent intent1 = getIntent();
@@ -83,22 +79,23 @@ public class ProductActivity extends AppCompatActivity
             }
         });
 
-        btn1.setOnClickListener(v -> {
+        btn1.setOnClickListener(v ->
+        {
            t= connectToEthNetwork(v);
-<<<<<<< HEAD
+
            toastAsync("Wallet generated");
             if(t==true) {
-=======
+
 
             toastAsync("Wallet generated");
 
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
+
                 createWallet(v);
                 getAddress(v);
                 sendTransaction(v);
 
 
-        });
+        })
     }
 
 
@@ -132,12 +129,9 @@ public class ProductActivity extends AppCompatActivity
         {
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
-<<<<<<< HEAD
+
             getAddress(v);
-=======
 
-
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
         }
         catch (Exception e)
         {
