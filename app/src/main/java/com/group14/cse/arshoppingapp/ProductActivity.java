@@ -28,42 +28,31 @@ public class ProductActivity extends AppCompatActivity
     Button btn1,btn2;
     boolean t;
     private Web3j web3;
-    private final String password = "ARSHOPPINGAPP";
-<<<<<<< HEAD
-    private String walletPath = getFilesDir().getAbsolutePath();
-    private File walletDir  = new File(walletPath);
-=======
+    //FIXME: Add your own password here
+    private final String password = "cmkishores";
     private String walletPath;
-
     private File walletDir;
 
-
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
     TextView gridData;
     ImageView imageView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-<<<<<<< HEAD
-=======
-        walletPath = getFilesDir().getAbsolutePath();
-        walletDir  = new File(walletPath);
 
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
         Intent intent1 = getIntent();
         String receivedName =  intent1.getStringExtra("name");
         int receivedImage = intent1.getIntExtra("image",0);
+
         gridData.setText(receivedName);
         imageView.setImageResource(receivedImage);
+
 //29cf16c50a8ecf3a4ccfcb9f678b51d0410f33bf4e6edb916b701f8396189e60
         btn2=(Button)findViewById(R.id.BuyButton3D);
         btn1=(Button)findViewById(R.id.buybutton);
-
         btn2.setOnClickListener(v -> {
             if(receivedName .equals("Couch - 10eth")) {
                 Intent intent = new Intent(ProductActivity.this, ARFRAG.class);
@@ -82,22 +71,16 @@ public class ProductActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
         btn1.setOnClickListener(v -> {
-           t= connectToEthNetwork(v);
-<<<<<<< HEAD
-           toastAsync("Wallet generated");
-            if(t==true) {
-=======
 
+            t= connectToEthNetwork(v);
             toastAsync("Wallet generated");
-
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
+            if(t==true) {
+                toastAsync("Wallet generated");
                 createWallet(v);
                 getAddress(v);
                 sendTransaction(v);
-
-
+            }
         });
     }
 
@@ -105,6 +88,7 @@ public class ProductActivity extends AppCompatActivity
     public boolean connectToEthNetwork(View v)
     {
         toastAsync("Connecting to Ethereum network...");
+
         web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/b5000509579e421faeaf38cbfebe84ef"));
         try
         {
@@ -124,7 +108,7 @@ public class ProductActivity extends AppCompatActivity
         {
             toastAsync(e.getMessage());
         }
-    return false;
+        return false;
     }
     public void createWallet(View v)
     {
@@ -132,12 +116,7 @@ public class ProductActivity extends AppCompatActivity
         {
             WalletUtils.generateNewWalletFile(password, walletDir);
             toastAsync("Wallet generated");
-<<<<<<< HEAD
             getAddress(v);
-=======
-
-
->>>>>>> 74649b5b4eea62d9f5be0a746eeba3628c0943c3
         }
         catch (Exception e)
         {
@@ -150,7 +129,7 @@ public class ProductActivity extends AppCompatActivity
         {
             Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
             toastAsync("Your address is " + credentials.getAddress());
-
+            sendTransaction(v);
         }
         catch (Exception e)
         {
@@ -173,6 +152,9 @@ public class ProductActivity extends AppCompatActivity
     public void toastAsync(String message)
     {
         runOnUiThread(() ->
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show());
+        {
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        });
     }
 }
+
