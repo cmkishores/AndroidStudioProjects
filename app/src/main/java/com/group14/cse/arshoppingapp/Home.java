@@ -31,10 +31,6 @@ public class Home extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.d("i","Hello");
-
-
-
-
                 Toast.makeText(getApplicationContext(),labels[i],Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(),ProductActivity.class);
                 intent.putExtra("name",labels[i]);

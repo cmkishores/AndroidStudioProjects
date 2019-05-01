@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.group14.cse.arshoppingapp.ProductActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".3">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/button_yellow"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="276dp"
+            android:layout_height="57dp"
+            android:layout_alignStart="@+id/toolbar"
+            android:layout_alignEnd="@+id/toolbar"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="135dp"
+            android:text="Description"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="36sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".3">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_yellow"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="276dp"
+            android:layout_height="57dp"
+            android:layout_alignStart="@+id/toolbar3"
+            android:layout_alignEnd="@+id/toolbar3"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="134dp"
+            android:text="Reviews"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="36sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight=".5">
+
+        <TextView
+            android:id="@+id/PriceView"
+            android:layout_width="195dp"
+
+            android:layout_height="match_parent"
+            android:background="@drawable/button_rectblue"
+            android:text="PRICE"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="36sp"
+            android:typeface="serif" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="216dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_toEndOf="@+id/PriceView"
+            android:background="@drawable/button_rectred"
+            android:text="Button"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="36sp" />
+    </RelativeLayout>
+</LinearLayout>
