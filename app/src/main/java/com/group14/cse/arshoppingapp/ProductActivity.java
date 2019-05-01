@@ -92,7 +92,9 @@ public class ProductActivity extends AppCompatActivity
                 toastAsync("Wallet generated");
                 getAddress(v);
                 sendTransaction(v);
-
+                Intent intent = new Intent(ProductActivity.this, PaymentActivity.class);
+                startActivity(intent);
+            }
 
             }
         });

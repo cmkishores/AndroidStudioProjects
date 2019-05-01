@@ -19,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class PaymentActivity extends AppCompatActivity {
 
     private EditText Username_editText;
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+        setContentView(R.layout.activity_payment);
         sp= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if(sp.getBoolean("flag",false))
         {  Intent intent = new Intent(MainActivity.this, Home.class);
@@ -42,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         final EditText Name = findViewById(R.id.MailID_editText);
         final EditText Password = findViewById(R.id.Password_editText);
-        Button Login = findViewById(R.id.login_button);
-        Button Register = findViewById(R.id.rgRegister_Button);
-        Login.setOnClickListener(new View.OnClickListener() {
+        Button buy = findViewById(R.id.buybut);
+        buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String email = Name.getText().toString().trim();
