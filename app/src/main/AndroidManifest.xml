@@ -60,6 +60,8 @@
         <activity android:name=".ARFRAG5">
         </activity>
         <activity android:name=".ARFRAG4">
+         </activity>
+        <activity android:name=".PaymentActivity">
     </activity>
     </application>
 

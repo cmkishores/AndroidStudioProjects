@@ -21,12 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class PaymentActivity extends AppCompatActivity {
 
-    private EditText Username_editText;
 
-    private EditText Password_editText;
     private Button buy;
-
-
 
 
     @Override
@@ -34,54 +30,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-        sp= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        if(sp.getBoolean("flag",false))
-        {  Intent intent = new Intent(MainActivity.this, Home.class);
-            startActivity(intent);
-        }
-        auth = FirebaseAuth.getInstance();
-        final EditText Name = findViewById(R.id.MailID_editText);
-        final EditText Password = findViewById(R.id.Password_editText);
-        Button buy = findViewById(R.id.buybut);
-        buy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String email = Name.getText().toString().trim();
-                final String password = Password.getText().toString().trim();
-
-                Task<AuthResult> authResultTask = auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            SharedPreferences.Editor ed=sp.edit();
-                            ed.putBoolean("wflag", (true));
-                            ed.commit();
-                            Intent intent = new Intent(MainActivity.this, Home.class);
-                            startActivity(intent);
-
-                        } else {
-                            Log.w("createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        }
-
-                    }
-                });
-
-            }
-
-        });
-
-
-        Register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
 
     }
 }
-
