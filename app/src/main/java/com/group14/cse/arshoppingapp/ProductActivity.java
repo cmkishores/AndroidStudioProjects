@@ -25,16 +25,9 @@ import java.util.Objects;
 
 import retrofit2.http.HEAD;
 
-public class ProductActivity extends AppCompatActivity
-{
-    Button btn1,btn2;
-    boolean t;
-    private Web3j web3;
-    private final String password = "ARSHOPPINGAPP";
+public class ProductActivity extends AppCompatActivity {
+    Button btn1, btn2;
 
-    private String walletPath;
-
-    private File walletDir;
 
 
     TextView gridData;
@@ -45,8 +38,7 @@ public class ProductActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
 
-        walletPath = getFilesDir().getAbsolutePath();
-        walletDir = new File(walletPath);
+
 
         gridData = findViewById(R.id.gridData);
         imageView = findViewById(R.id.imageView);
@@ -73,102 +65,17 @@ public class ProductActivity extends AppCompatActivity
                 Intent intent = new Intent(ProductActivity.this, ARFRAG5.class);
                 startActivity(intent);
             }
+
+
+
         });
-
-
-        btn1.setOnClickListener(v ->
-        {
-            t= connectToEthNetwork(v);
-
-
-            if(t==true)
-            {
-
-
-                toastAsync("Wallet generated");
-
-
-                createWallet(v);
-                toastAsync("Wallet generated");
-                getAddress(v);
-                sendTransaction(v);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(ProductActivity.this, PaymentActivity.class);
                 startActivity(intent);
             }
-
-            }
         });
-    }
 
-    public boolean connectToEthNetwork(View v)
-    {
-        toastAsync("Connecting to Ethereum network...");
-        web3 = Web3j.build(new HttpService("https://rinkeby.infura.io/v3/b5000509579e421faeaf38cbfebe84ef"));
-        try
-        {
-            Web3ClientVersion clientVersion = web3.web3ClientVersion().sendAsync().get();
-            if(!clientVersion.hasError())
-            {
-                toastAsync("Connected!");
-                return true;
-            }
-            else
-            {
-                toastAsync(clientVersion.getError().getMessage());
-                return false;
-            }
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-        return false;
-    }
-    public void createWallet(View v)
-    {
-        try
-        {
-            WalletUtils.generateNewWalletFile(password, walletDir);
-            toastAsync("Wallet generated");
-
-            getAddress(v);
-
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-    }
-    public void getAddress(View v)
-    {
-        try
-        {
-            Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
-            toastAsync("Your address is " + credentials.getAddress());
-
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-    }
-    public void sendTransaction(View v)
-    {
-        try
-        {
-            Credentials credentials = WalletUtils.loadCredentials(password, walletDir);
-            TransactionReceipt receipt = Transfer.sendFunds(web3,credentials,"0x31B98D14007bDEe637298086988A0bBd31184523",new BigDecimal(1), Convert.Unit.ETHER).sendAsync().get();
-            toastAsync("Transaction complete: " +receipt.getTransactionHash());
-        }
-        catch (Exception e)
-        {
-            toastAsync(e.getMessage());
-        }
-
-    }
-    public void toastAsync(String message)
-    {
-        runOnUiThread(() ->
-                Toast.makeText(this, message, Toast.LENGTH_LONG).show());
     }
 }

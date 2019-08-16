@@ -1,0 +1,28 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.187496374)
+
+newmtl Oak Polished - 
+Kd 0.5 0.5 0.5
+Ka 0 0 0
+Ks 0.3 0.3 0.3
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl Mat.1
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 1 1 1
+Ke 0 0 0
+d 1
+illum 1
+
+newmtl Mat
+Kd 0.5 0.5 0.5
+Ka 0 0 0
+Ks 1 1 1
+Ke 0 0 0
+d 1
+illum 1
+map_Kd Chair Le.png
+

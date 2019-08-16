@@ -25,13 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="156dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/colorWhite"
         android:fontFamily="sans-serif-light"
         android:hint="Email"
-        android:text="cmkishore@ieee.org"
         android:inputType="textEmailAddress"
+        android:text="cmkishore@ieee.org"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textColorHint="@color/browser_actions_text_color"
         android:textSize="17sp"
@@ -108,6 +108,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UnknownId" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="258dp" />
 
 </android.support.constraint.ConstraintLayout>
 

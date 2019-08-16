@@ -166,6 +166,7 @@
     file: 'sampledata/model4.obj',
     name: 'model4',
     recenter: 'root',
+    scale: 0.5
   },
   version: '0.54:2',
 }
